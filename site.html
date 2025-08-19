@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onull9999</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+            overflow-x: hidden;
+            background-color: #111;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('background.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            filter: blur(8px);
+            z-index: -1;
+            transform: scale(1.1);
+            transition: transform 0.1s ease-out;
+        }
+
+        .content {
+            text-align: center;
+            color: white;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease-out forwards;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            max-width: 800px;
+            padding: 20px;
+            margin: 40px 20px;
+            width: 100%;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .activities {
+            position: relative;
+            margin: 2rem 0;
+            padding: 2rem;
+            background-color: rgba(100, 100, 100, 0.3);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        .activities::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(50, 50, 50, 0.5);
+            border-radius: 15px;
+            z-index: -1;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .activity-list {
+            list-style: none;
+        }
+
+        .activity-list li {
+            margin: 0.8rem 0;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .petting-text {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-style: italic;
+            margin-left: 0.3rem;
+        }
+
+        .links {
+            margin-top: 2rem;
+            padding-bottom: 40px;
+        }
+
+        .link-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .link-button {
+            padding: 0.8rem 1.5rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .link-button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .content {
+                margin: 20px 10px;
+                padding: 15px;
+            }
+            
+            .activities {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background" id="background"></div>
+    <div class="content">
+        <h1>onull9999</h1>
+        <img src="me.png" alt="Profile Image" class="profile-image">
+        
+        <div class="activities">
+            <h2>主な活動</h2>
+            <ul class="activity-list">
+                <li>VRChat<span class="petting-text">（なでなで待ってます!!）</span></li>
+                <li>マインクラフト BE & JE</li>
+                <li>お絵描き</li>
+                <li>サイト、アプリ制作</li>
+            </ul>
+        </div>
+        
+        <div class="links">
+            <h2>リンク</h2>
+            <div class="link-buttons">
+                <a href="https://discord.com/" class="link-button" target="_blank">Discord</a>
+                <a href="https://twitter.com/" class="link-button" target="_blank">X</a>
+                <a href="https://github.com/onull9999" class="link-button" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const background = document.getElementById('background');
+            
+            document.addEventListener('mousemove', function(e) {
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                
+                background.style.transform = `scale(1.1) translate(${x * 10}px, ${y * 10}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
