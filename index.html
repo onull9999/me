@@ -74,7 +74,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
-        .activities {
+        .section-box {
             position: relative;
             margin: 2rem 0;
             padding: 2rem;
@@ -83,7 +83,7 @@
             backdrop-filter: blur(5px);
         }
 
-        .activities::before {
+        .section-box::before {
             content: "";
             position: absolute;
             bottom: 0;
@@ -100,11 +100,18 @@
             margin-bottom: 1.5rem;
         }
 
-        .activity-list {
+        .introduction-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+        }
+
+        .item-list {
             list-style: none;
         }
 
-        .activity-list li {
+        .item-list li {
             margin: 0.8rem 0;
             font-size: 1.2rem;
             color: rgba(255, 255, 255, 0.8);
@@ -115,6 +122,37 @@
             color: rgba(255, 255, 255, 0.5);
             font-style: italic;
             margin-left: 0.3rem;
+        }
+
+        .likes-dislikes-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .likes-section, .dislikes-section {
+            flex: 1;
+            text-align: left;
+        }
+
+        .divider {
+            width: 1px;
+            background: linear-gradient(to bottom, 
+                        transparent, 
+                        rgba(255, 255, 255, 0.3), 
+                        transparent);
+            margin: 0 1rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+        }
+
+        .dislikes-list li {
+            color: rgba(255, 150, 150, 0.8);
         }
 
         .links {
@@ -156,8 +194,23 @@
                 padding: 15px;
             }
             
-            .activities {
+            .section-box {
                 padding: 1.5rem;
+            }
+            
+            .introduction-text {
+                font-size: 1.1rem;
+            }
+            
+            .likes-dislikes-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .divider {
+                width: 100%;
+                height: 1px;
+                margin: 1rem 0;
             }
         }
     </style>
@@ -168,9 +221,19 @@
         <h1>onull9999</h1>
         <img src="me.png" alt="Profile Image" class="profile-image">
         
-        <div class="activities">
+        <!-- 自己紹介セクション追加 -->
+        <div class="section-box">
+            <h2>自己紹介</h2>
+            <p class="introduction-text">
+                onull9999です！おぬるって呼んでね！<br>
+                プログラミングや音楽大好きな中学生です。<br>
+                仲良くしてね！
+            </p>
+        </div>
+        
+        <div class="section-box">
             <h2>主な活動</h2>
-            <ul class="activity-list">
+            <ul class="item-list">
                 <li>VRChat<span class="petting-text">（なでなで待ってます!!）</span></li>
                 <li>マインクラフト BE & JE</li>
                 <li>お絵描き</li>
@@ -178,11 +241,38 @@
             </ul>
         </div>
         
+        <div class="section-box">
+            <h2>好きなこと・嫌いなこと</h2>
+            <div class="likes-dislikes-container">
+                <div class="likes-section">
+                    <h3 class="section-title">好きなこと</h3>
+                    <ul class="item-list">
+                        <li>ラーメン食べる</li>
+                        <li>音楽聞く</li>
+                        <li>音楽作る</li>
+                        <li>ごろごろする</li>
+                        <li>楽しいこと</li>
+                    </ul>
+                </div>
+                
+                <div class="divider"></div>
+                
+                <div class="dislikes-section">
+                    <h3 class="section-title">嫌いなこと</h3>
+                    <ul class="item-list dislikes-list">
+                        <li>アカウントブロック</li>
+                        <li>痛いこと</li>
+                        <li>エラーとかなんか壊れること</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
         <div class="links">
             <h2>リンク</h2>
             <div class="link-buttons">
                 <a href="https://discord.com/" class="link-button" target="_blank">Discord</a>
-                <a href="https://twitter.com/" class="link-button" target="_blank">X</a>
+                <a href="https://x.com/onull9999" class="link-button" target="_blank">X</a>
                 <a href="https://github.com/onull9999" class="link-button" target="_blank">GitHub</a>
             </div>
         </div>
